@@ -1,0 +1,23 @@
+%h1 Listing transactions
+%table
+  %thead
+    %tr
+      %th Dt
+      %th Account
+      %th Amount
+      %th Remark
+      %th Transaction type
+      %th{:colspan => "3"}
+  %tbody
+    - @transactions.each do |transaction|
+      %tr
+        %td= transaction.dt
+        %td= transaction.account_id
+        %td= transaction.amount
+        %td= transaction.remark
+        %td= transaction.transaction_type
+        %td= link_to 'Show', transaction
+        %td= link_to 'Edit', edit_transaction_path(transaction)
+        %td= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Transaction', new_transaction_path

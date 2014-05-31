@@ -1,0 +1,49 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#app_title {
+  width: 960px;
+  height: 80px;
+  padding: 15px 0px;
+  font: bold 70px "HelveticaNeue-CondensedBold", "Helvetica Neue", "Droid Sans", helvetica, sans-serif;
+  margin: auto;
+}
+
+#first {
+  color: #00BFFF;
+  float: left;
+  margin-left: 40%;
+}
+
+#second {
+  color: #FF1493;
+}
+
+.top-container {
+  width: 90%;
+  margin: auto;
+  border-style: hidden;
+  background-color: #FFF5EE;
+}
+
+.accounts-container {
+  padding: 20px 20px;
+}
+
+.accounts-container table {
+  width: 90%;
+}
+
+.accounts-container th {
+  font: bold 20px "HelveticaNeue-CondensedBold", "Helvetica Neue", "Droid Sans", helvetica, sans-serif;
+  width: 33%;
+}
+
+.accounts-container td {
+  width: 33%;  
+}
+
+.transaction-container {
+}
+
+
