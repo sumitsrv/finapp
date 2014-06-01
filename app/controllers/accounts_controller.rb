@@ -4,7 +4,25 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    accounts = Account.all
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => 
+          {
+            :iTotalRecords => Account.count,
+            :iTotalDisplayRecords => Account.count,
+            :aaData => 
+                accounts.map do |account| 
+                  [
+                    link_to(account.name, account_url(account.id)),
+                    account.account_type,
+                    account.balance
+                  ]
+                end
+          }
+        }
+    end
   end
 
   # GET /accounts/1

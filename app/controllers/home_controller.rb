@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @accounts = Account.all
+    @transaction = Transaction.new
   end
 end

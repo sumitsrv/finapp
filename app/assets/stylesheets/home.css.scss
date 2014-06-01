@@ -23,27 +23,95 @@
   width: 90%;
   margin: auto;
   border-style: hidden;
-  background-color: #FFF5EE;
+  background-color: #FFF;
 }
 
-.accounts-container {
-  padding: 20px 20px;
+#accounts-container {
+  padding: 5px 5px;
+  width: 100% !important;
 }
 
-.accounts-container table {
-  width: 90%;
+#accounts-container th {
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.accounts-container th {
-  font: bold 20px "HelveticaNeue-CondensedBold", "Helvetica Neue", "Droid Sans", helvetica, sans-serif;
-  width: 33%;
+#accounts-container td {
+  padding: 5px 15px;
+  font-size: 15px;
 }
 
-.accounts-container td {
-  width: 33%;  
+#transaction-container {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 15px;
+  background-color: #F5F5F5;
+  height: 125px;
 }
 
-.transaction-container {
+#transaction-container .field{
+  padding: 10px;
+  display: inline;
+  float: left;
 }
 
+#transaction-container .field label {
+  padding: 10px;
+}
 
+#transaction-container .actions{
+  display: block;
+  margin-left: 45%;
+  margin-top: 15px;
+}
+
+#transaction-container .button {
+  padding: 5px;
+  -moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+  box-shadow:inset 0px 1px 0px 0px #cae3fc;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee) );
+  background:-moz-linear-gradient( center top, #79bbff 5%, #4197ee 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
+  background-color:#79bbff;
+  -webkit-border-top-left-radius:5px;
+  -moz-border-radius-topleft:5px;
+  border-top-left-radius:5px;
+  -webkit-border-top-right-radius:5px;
+  -moz-border-radius-topright:5px;
+  border-top-right-radius:5px;
+  -webkit-border-bottom-right-radius:5px;
+  -moz-border-radius-bottomright:5px;
+  border-bottom-right-radius:5px;
+  -webkit-border-bottom-left-radius:5px;
+  -moz-border-radius-bottomleft:5px;
+  border-bottom-left-radius:5px;
+  text-indent:0;
+  border:1px solid #469df5;
+  display:inline-block;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  font-style:normal;
+  width:200px;
+  text-decoration:none;
+  text-align:center;
+  text-shadow:1px 1px 0px #287ace;
+}
+
+#transaction-container textarea {
+  height: 20px;
+}
+
+#new_transaction {
+  padding-top: 5px;
+}
+
+.line-separator {
+  background: #717171;
+  border-bottom:1px solid #313030;
+  clear: both;
+  margin: auto;
+  width: 95%; 
+}
