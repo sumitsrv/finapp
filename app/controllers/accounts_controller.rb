@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
             :aaData => 
                 accounts.map do |account| 
                   [
-                    link_to(account.name, account_url(account.id)),
+                    link_to(account.name, account_transactions_url(account.id)),
                     account.account_type,
                     account.balance
                   ]

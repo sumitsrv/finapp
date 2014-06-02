@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  get '/account/:account_id/transactions' => 'transactions#index', :as => 'account_transactions'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

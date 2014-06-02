@@ -4,7 +4,30 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    if params.include?(:account_id)
+      account_id = params[:account_id]
+      @transactions = Transaction.where(:account_id => account_id)
+    else
+      @transactions = Transaction.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render :json =>
+          {
+            :iTotalRecords => Account.count,
+            :iTotalDisplayRecords => Account.count,
+            :aaData =>
+                accounts.map do |account|
+                  [
+                    link_to(account.name, account_transactions_url(account.id)),
+                    account.account_type,
+                    account.balance
+                  ]
+                end
+          }
+        }
+    end
   end
 
   # GET /transactions/1
@@ -27,12 +50,18 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
-      else
-        format.html { render :new }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+      Transaction.transaction do
+        begin
+          @transaction.save!
+          @transaction.account.update_attributes!(:balance => @transaction.account.balance + @transaction.amount)
+
+          format.html { redirect_to root_url, notice: 'Transaction was successfully created.' }
+        rescue ActiveRecord::RecordInvalid
+          format.html { redirect_to root_url }
+          format.json { render json: @transaction.errors, status: :unprocessable_entity }
+          
+          raise ActiveRecord::Rollback
+        end
       end
     end
   end

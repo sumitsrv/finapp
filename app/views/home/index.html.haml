@@ -1,37 +1,10 @@
-#app_title
-  #first
-    Fin
-  #second
-    aPP
 .top-container
+  #summary-container
+    = render :partial => 'accounts/summary'
   #transaction-container
-    = simple_form_for(@transaction) do |f|
-      - if @transaction.errors.any?
-        #error_explanation
-          %h2
-            = pluralize(@transaction.errors.count, "error")
-            prohibited this transaction from being saved:
-          %ul
-            - @transaction.errors.full_messages.each do |message|
-              %li= message
-      .field
-        = f.input :dt, :as => :date, :label => 'Date'
-      .field
-        = f.input :account_id, :as => :select, :collection => Account.all.collect{|account| [account.name, account.id]}
-      .field
-        = f.input :amount
-      .field
-        = f.input :remark
-      .field
-        = f.input :transaction_type, :collection => [["CR", "cr"], ["DR", "dr"]]
-      .line-separator
-      .actions
-        = f.button :submit
+    = render :partial => 'transactions/form'
+  
+  = render :partial => 'accounts/index'
 
-  %table#accounts-container{:data => {:source => "#{accounts_url}"}}
-    %thead
-      %tr
-        %th Name
-        %th Type
-        %th Balance
-    %tbody
+  #account-container
+    = render :partial => 'accounts/form'
