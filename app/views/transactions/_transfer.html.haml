@@ -1,0 +1,14 @@
+= simple_form_for :transfer, {:url => transfer_transactions_url, :method => 'put', :html => {:id => 'new_transfer'}} do |f|
+  .field
+    = f.input :dt, :as => :date, :label => 'Date'
+  .field
+    = f.input :account_id_lender, :label => 'From', :as => :select, :collection => Account.all.collect{|account| [account.name, account.id]}
+  .field
+    = f.input :account_id_beneficiary, :label => 'To', :as => :select, :collection => Account.all.collect{|account| [account.name, account.id]}
+  .field
+    = f.input :amount, :as => :integer
+  .field
+    = f.input :remark, :as => :text
+  .line-separator
+  .actions
+    = f.button :submit
