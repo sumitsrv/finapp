@@ -1,10 +1,19 @@
-.top-container
-  #summary-container
-    = render :partial => 'accounts/summary'
+#summary-container
+  = render :partial => 'accounts/summary'
+
+.tabs.group
+  %label.active
+    %a{:onclick => "selectAction('transaction');"} Add Transaction
+  %label
+    %a{:onclick => "selectAction('account');"} Add Account
+  %label
+    %a{:onclick => "selectAction('transfer');"} Add Transfer
+
+.container-wrapper
   #transaction-container
     = render :partial => 'transactions/form'
-  
-  = render :partial => 'accounts/index'
-
   #account-container
     = render :partial => 'accounts/form'
+  #transfer-container
+
+= render :partial => 'accounts/index'

@@ -15,18 +15,21 @@ class TransactionsController < ApplicationController
       format.html
       format.json { render :json =>
           {
-            :iTotalRecords => Account.count,
-            :iTotalDisplayRecords => Account.count,
+            :iTotalRecords => @transactions.count,
+            :iTotalDisplayRecords => @transactions.count,
             :aaData =>
-                accounts.map do |account|
+                @transactions.map do |transaction|
                   [
-                    link_to(account.name, account_transactions_url(account.id)),
-                    account.account_type,
-                    account.balance
+                    transaction.dt,
+                    link_to(transaction.account.name, account_url(transaction.account.id)),
+                    transaction.transaction_type,
+                    transaction.amount,
+                    transaction.remark
                   ]
                 end
           }
         }
+      format.js
     end
   end
 

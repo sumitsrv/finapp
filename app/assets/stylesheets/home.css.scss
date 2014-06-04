@@ -19,14 +19,55 @@
   color: #FF1493;
 }
 
-.top-container {
-  width: 90%;
-  margin: auto;
-  border-style: hidden;
-  background-color: #FFF;
+.label {
+  list-style: none;
+  padding: 0px;
 }
 
-#summary-container, #transaction-container, #account-container, #accounts-container {
+.tabs label, .tabs label a:hover{ 
+  -webkit-border-top-left-radius:10px;
+  -moz-border-radius-topleft:10px;
+  border-top-left-radius:10px;
+  -webkit-border-top-right-radius:10px;
+  -moz-border-radius-topright:10px;
+  border-top-right-radius:10px;
+  -webkit-border-bottom-right-radius:10px;
+}
+
+.tabs label {
+  display: inline-block;
+  text-align: center;
+  width: 33.1%;
+  background: #A0A0A0;
+  height: 30px;
+}
+
+.tabs label a {
+  display: block;
+  padding: 4px 10px;
+  position: relative;
+  text-decoration: none;
+  line-height: 22px;
+  font-size:15px;
+  font-weight: bold;
+  color: #000;
+}
+
+.tabs label a:hover {
+  background: #E8E8E8; 
+}
+
+.group:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+}
+
+.container-wrapper { position: relative; min-height: 150px; }
+
+#summary-container, #accounts-container {
   -webkit-border-top-left-radius:10px;
   -moz-border-radius-topleft:10px;
   border-top-left-radius:10px;
@@ -39,6 +80,22 @@
   -webkit-border-bottom-left-radius:10px;
   -moz-border-radius-bottomleft:10px;
   border-bottom-left-radius:10px;
+}
+
+#transaction-container, #account-container, #transfer-container {
+  -moz-border-radius-bottomright:10px;
+  border-bottom-right-radius:10px;
+  -webkit-border-bottom-left-radius:10px;
+  -moz-border-radius-bottomleft:10px;
+  border-bottom-left-radius:10px;
+}
+
+.selected {
+  z-index: 10;
+}
+
+.active {
+  background: #E8E8E8 !important;
 }
 
 #summary-container {
@@ -57,17 +114,17 @@
   float: left;
 }
 
-#accounts-container {
+#accounts-container, #transactions-container {
   padding: 5px 5px;
   width: 100% !important;
 }
 
-#accounts-container th {
+#accounts-container th, #transactions-container th {
   font-size: 16px;
   font-weight: bold;
 }
 
-#accounts-container td {
+#accounts-container td, #transactions-container td {
   padding: 5px 15px;
   font-size: 15px;
 }
@@ -80,8 +137,9 @@
   width: 100%;
   margin: auto;
   margin-bottom: 15px;
-  background-color: #F5F5F5;
+  background-color: #E8E8E8;
   height: 125px;
+  position: absolute;
 }
 
 .field {

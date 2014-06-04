@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def link_to(name, url)
     ActionController::Base.helpers.link_to(name, url);
   end
+
+  def link_to_async(name, url)
+    ActionController::Base.helpers.link_to(name, url, :remote => true);
+  end
 end

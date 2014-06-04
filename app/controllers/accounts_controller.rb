@@ -13,14 +13,14 @@ class AccountsController < ApplicationController
             :iTotalRecords => Account.count,
             :iTotalDisplayRecords => Account.count,
             :aaData => 
-                accounts.map do |account| 
-                  [
-                    link_to(account.name, account_transactions_url(account.id)),
-                    account.account_type,
-                    account.balance
-                  ]
-                end
-          }
+              accounts.map do |account| 
+                [
+                  link_to(account.name, account_transactions_url(account.id)),
+                  account.account_type,
+                  account.balance
+                ]
+              end
+           }
         }
     end
   end
@@ -48,10 +48,9 @@ class AccountsController < ApplicationController
     p account_params
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
-        format.json { render :show, status: :created, location: @account }
+        format.html { redirect_to root_url, notice: 'Account was successfully created.' }
       else
-        format.html { render :new }
+        format.html { render root_url }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
