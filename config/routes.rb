@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/account/:account_id/transactions' => 'transactions#index', :as => 'account_transactions'
+  put '/transfer' => 'transactions#transfer', :as => 'transfer_transactions'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

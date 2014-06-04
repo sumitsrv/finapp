@@ -93,6 +93,33 @@ class TransactionsController < ApplicationController
     end
   end
 
+  #PUT
+  def transfer
+    transfer_params = params[:transfer]
+    lender_account = Account.find(transfer_params[:account_id_lender])
+    beneficiary_account = Account.find(transfer_params[:account_id_beneficiary])
+    amount = transfer_params[:amount]
+    remark = transfer_params[:remark]
+    date = Date.civil(transfer_params[:"dt(1i)"].to_i, transfer_params[:"dt(2i)"].to_i, transfer_params[:"dt(3i)"].to_i)
+  
+    respond_to do |format|
+      Transaction.transaction do
+        begin
+          Transaction.create!(:dt => date, :account_id => lender_account.id, :amount => -1*amount.to_i, :remark => remark, :transaction_type => 'dr')
+          lender_account.update_attributes!(:balance => lender_account.balance.to_i - amount.to_i)
+
+          Transaction.create!(:dt => date, :account_id => beneficiary_account.id, :amount => amount, :remark => remark, :transaction_type => 'cr')
+          beneficiary_account.update_attributes!(:balance => beneficiary_account.balance.to_i + amount.to_i)
+         
+          format.html { redirect_to root_url, notice: 'Transfer successfully completed'}
+        rescue ActiveRecord::RecordInvalid
+          format.html { redirect_to root_url }
+          raise ActiveRecord::Rollback
+        end
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction

@@ -43,7 +43,6 @@ gem 'hpricot'
 gem 'html2haml'
 gem 'mysql2'
 gem 'simple_form'
-gem 'jquery-rails'
 
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'

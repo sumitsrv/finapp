@@ -133,7 +133,7 @@
   margin-bottom: 15px;
 }
 
-#transaction-container, #account-container {
+#transaction-container, #account-container, #transfer-container {
   width: 100%;
   margin: auto;
   margin-bottom: 15px;
@@ -195,11 +195,11 @@
   text-shadow:1px 1px 0px #287ace;
 }
 
-#transaction-container textarea, #account-container textarea {
+#transaction-container textarea, #account-container textarea, #transfer-container textarea {
   height: 16px;
 }
 
-#new_transaction, #new_account{
+#new_transaction, #new_account, #new_transfer{
   padding-top: 5px;
 }
 
