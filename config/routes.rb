@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
-  resources :transactions
+  get 'users/new'
 
+  resources :transactions
   resources :accounts
+  resources :users
+  resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'users#new'
+ 
+  get '/signin' => 'sessions#new', :as => 'signin'
+  get '/signup' => 'users#new', :as => 'signup'
+  get '/signout' => 'sessions#destroy', :as => 'signout'
 
+  get '/home' => 'home#index', :as => 'home'
   get '/account/:account_id/transactions' => 'transactions#index', :as => 'account_transactions'
   put '/transfer' => 'transactions#transfer', :as => 'transfer_transactions'
   # Example of regular route:

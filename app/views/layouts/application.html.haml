@@ -6,10 +6,26 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    #app_title
-      #first
-        Fin
-      #second
-        aPP
+    #title-bar
+      #app-title
+        %a{:href => root_url}
+          #first
+            Fin
+          #second
+            aPP
+      #menu-bar
+        .menu
+          %a{:href => home_url}
+            Home
+        .menu
+          %a{:href => accounts_url}
+            Accounts
+        .menu
+          %a{:href => transactions_url}
+            Transactions
+        .menu
+          %a{:href => signout_url}
+            SignOut
     .top-container 
+      = render :partial => 'layouts/flash_messages', :flash => flash
       = yield

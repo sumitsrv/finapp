@@ -20,21 +20,8 @@ p, ol, ul, td {
   line-height: 18px;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
 a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+  text-decoration: none !important;
 }
 
 div {
@@ -43,35 +30,48 @@ div {
   }
 }
 
-#notice {
-  color: green;
+#title-bar {
+  width: 90%;
+  margin: auto;
+  display: block;
+  padding: 15px 0px;
+  height: 80px;
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+#app-title {
+  width: 20%;
+  font: bold 70px "HelveticaNeue-CondensedBold", "Helvetica Neue", "Droid Sans", helvetica, sans-serif;
+  margin: auto;
+  display: block;
+  float: left;
 }
 
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
+#first {
+  color: #DCDCDC;
+  float: left;
+}
+
+#second {
+  color: #83A532;
+}
+
+#menu-bar {
+  width: 65%;
+  height: 35px;
+  margin-top: 35px;
+  margin-left: 15%;
+  //background-color: #DCDCDC;
+  display: inline-block;
+}
+
+.menu {
+  width: 25%;
+  font: lighter 15px "HelveticaNeue-CondensedBold", "Helvetica Neue", "Droid Sans", helvetica, sans-serif;
+  margin: auto;
+  float: left; 
+  line-height: 35px;
+}
+
+.menu a {
+  color: #000000;
 }

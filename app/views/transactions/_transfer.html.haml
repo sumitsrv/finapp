@@ -4,7 +4,7 @@
   .field
     = f.input :account_id_lender, :label => 'From', :as => :select, :collection => Account.all.collect{|account| [account.name, account.id]}
   .field
-    = f.input :account_id_beneficiary, :label => 'To', :as => :select, :collection => Account.all.collect{|account| [account.name, account.id]}
+    = f.input :account_id_beneficiary, :label => 'Beneficiary', :as => :select, :collection => Account.all.collect{|account| [account.name, account.id]}
   .field
     = f.input :amount, :as => :integer
   .field

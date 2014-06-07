@@ -1,24 +1,6 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#app_title {
-  width: 960px;
-  height: 80px;
-  padding: 15px 0px;
-  font: bold 70px "HelveticaNeue-CondensedBold", "Helvetica Neue", "Droid Sans", helvetica, sans-serif;
-  margin: auto;
-}
-
-#first {
-  color: #00BFFF;
-  float: left;
-  margin-left: 37%;
-}
-
-#second {
-  color: #FF1493;
-}
-
 .label {
   list-style: none;
   padding: 0px;
@@ -39,6 +21,7 @@
   width: 33.1%;
   background: #A0A0A0;
   height: 30px;
+  margin-bottom: 0px;
 }
 
 .tabs label a {
@@ -64,9 +47,12 @@
   clear: both;
 }
 
-.container-wrapper { position: relative; min-height: 150px; }
+.container-wrapper { 
+  position: relative; 
+  min-height: 220px; 
+}
 
-#summary-container, #accounts-container {
+#accounts-container {
   -webkit-border-top-left-radius:10px;
   -moz-border-radius-topleft:10px;
   border-top-left-radius:10px;
@@ -100,18 +86,19 @@
 
 #summary-container {
   width: 100%;
-  height: 50px;
-  background-color: #9ACD32;
+  height: 25px;
+  background-color: #83A532;
   margin-bottom: 15px;
 }
 
 .balance_info {
   color: #000000;
-  margin-top: 15px;
-  font-size: 18px;
+  margin-top: 4px;
+  font-size: 14px;
   text-align: center;
-  width: 33%;
+  width: 25%;
   float: left;
+  font-weight: bold;
 }
 
 #accounts-container, #transactions-container {
@@ -138,7 +125,7 @@
   margin: auto;
   margin-bottom: 15px;
   background-color: #E8E8E8;
-  height: 125px;
+  min-height: 125px;
   position: absolute;
 }
 
@@ -152,6 +139,7 @@
   padding: 10px;
   font-weight: bold;
   font-size: 12px;
+  display: inline;
 }
 
 .actions {
@@ -189,7 +177,7 @@
   font-size:15px;
   font-weight:bold;
   font-style:normal;
-  width:200px;
+  width:200px !important;
   text-decoration:none;
   text-align:center;
   text-shadow:1px 1px 0px #287ace;
@@ -211,3 +199,10 @@
   width: 95%; 
 }
 
+form {
+  margin: auto !important;
+}
+
+input[type="datetime"], input[type="datetime-local"], input[type="date"] {
+  width: 30px;
+}
