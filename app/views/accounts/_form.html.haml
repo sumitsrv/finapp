@@ -1,6 +1,6 @@
 = simple_form_for @account do |f|
   .field
-    = f.input :name, :input_html => {:size => 25, :max_length => 25}
+    = f.input :name, :input_html => {:size => 15, :max_length => 25}
   .field
     = f.input :account_type, :label => "Type", :collection => Account::TYPES, :include_blank => false
   .field

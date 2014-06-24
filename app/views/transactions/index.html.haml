@@ -1,4 +1,4 @@
-%table#transactions-container{:data => {:source => "#{account_transactions_url}"}}
+%table#transactions-container{:data => {:source => "#{params[:account_id].present? ? account_transactions_url : transactions_url}"}}
   %thead
     %tr
       %th Date

@@ -49,7 +49,7 @@
 
 .container-wrapper { 
   position: relative; 
-  min-height: 220px; 
+  min-height: 150px; 
 }
 
 #accounts-container {
@@ -205,4 +205,20 @@ form {
 
 input[type="datetime"], input[type="datetime-local"], input[type="date"] {
   width: 30px;
+}
+
+.date select{
+  width: 65px !important;
+}
+
+.container-wrapper select {
+  width: 120px;
+}
+
+.container-wrapper .numeric {
+  width: 120px;
+}
+
+.container-wrapper .text textarea{
+  width: 50px;
 }

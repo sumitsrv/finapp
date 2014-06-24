@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   add_flash_types :success, :info, :warning, :danger
 
+  before_filter :logged_in?
+
   def link_to(name, url)
     ActionController::Base.helpers.link_to(name, url);
   end
@@ -15,6 +17,15 @@ class ApplicationController < ActionController::Base
   
   def flatten_date_array hash
     [1,2,3].map { |e| hash["dt(#{e}i)"].to_i }
+  end
+
+  def logged_in?
+    if current_user.present?
+      return true
+    else
+      flash[:warning] = 'Kindly Login to Continue!'
+      redirect_to root_url
+    end
   end
 
   private

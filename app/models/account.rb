@@ -1,4 +1,7 @@
 class Account < ActiveRecord::Base
+  belongs_to :user
+  has_many :transactions
+
   TYPES = [['SAVINGS', 'savings'], ['CREDIT', 'credit'], ['PF', 'pf'], ['PERSON', 'person']] 
 
   validates :name, :uniqueness => true, :presence => true

@@ -4,14 +4,14 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    accounts = Account.all
+    accounts = current_user.accounts
 
     respond_to do |format|
       format.html
       format.json { render :json => 
           {
-            :iTotalRecords => Account.count,
-            :iTotalDisplayRecords => Account.count,
+            :iTotalRecords => accounts.count,
+            :iTotalDisplayRecords => accounts.count,
             :aaData => 
               accounts.map do |account| 
                 [
@@ -43,9 +43,8 @@ class AccountsController < ApplicationController
   # POST /accounts.json
   def create
     @account = Account.new(account_params)
+    @account.user_id = current_user.id
 
-    p @account
-    p account_params
     respond_to do |format|
       if @account.save
         format.html { redirect_to root_url, notice: 'Account was successfully created.' }

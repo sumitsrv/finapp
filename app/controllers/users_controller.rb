@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  skip_before_filter :logged_in?, :except => [:destroy]
+  before_filter :new_user?, :except => [:destroy]
+
   def new
     @user = User.new
   end
@@ -14,9 +17,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
   
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
+  end
+  
+  def new_user?
+    if current_user.present?
+      redirect_to home_url
+    end
   end
 end
